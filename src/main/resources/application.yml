@@ -1,0 +1,60 @@
+server:
+  port: 8090
+spring:
+  datasource:
+    dynamic:
+      primary: user
+      datasource:
+        user:
+          url: jdbc:mysql://localhost:3306/test_user?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false
+          username: root
+          password: a1b2C3$4
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minimum-idle: 5
+            maximum-pool-size: 15
+            auto-commit: true
+            idle-timeout: 30000
+            pool-name: DatebookHikariCP
+            max-lifetime: 1800000
+            connection-timeout: 30000
+            connection-test-query: SELECT 1
+        product:
+          url: jdbc:mysql://localhost:3306/test_product?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false
+          username: root
+          password: a1b2C3$4
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minimum-idle: 5
+            maximum-pool-size: 15
+            auto-commit: true
+            idle-timeout: 30000
+            pool-name: DatebookHikariCP
+            max-lifetime: 1800000
+            connection-timeout: 30000
+            connection-test-query: SELECT 1
+        order:
+          url: jdbc:mysql://localhost:3306/test_order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false
+          username: root
+          password: a1b2C3$4
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minimum-idle: 5
+            maximum-pool-size: 15
+            auto-commit: true
+            idle-timeout: 30000
+            pool-name: DatebookHikariCP
+            max-lifetime: 1800000
+            connection-timeout: 30000
+            connection-test-query: SELECT 1
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:*/*.xml
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+elasticsearch:
+  index-products: products
